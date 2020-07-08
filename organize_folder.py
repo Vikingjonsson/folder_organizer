@@ -38,6 +38,7 @@ if __name__ == '__main__':
         'IMG': 'Images',
         'PDF': 'PDFs',
         'LOG': 'Logs',
+        'IMG': 'Disk images'
     }
 
     FILE_TYPES = {
@@ -45,7 +46,8 @@ if __name__ == '__main__':
         'TXT': ['.txt'],
         'IMG': ['.jpeg', '.jpg', '.png'],
         'PDF': ['.pdf'],
-        'LOG': ['.log']
+        'LOG': ['.log'],
+        'IMG': ['.img']
     }
 
     for item in os.listdir(CURRENT_WORKING_DIR):

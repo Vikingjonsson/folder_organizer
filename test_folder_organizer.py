@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import patch
-import organize_folder
+import folder_organizer
 
 
-class Test_organize_folder(unittest.TestCase):
+class Test_folder_organizer(unittest.TestCase):
 
     def setUp(self):
         pass
@@ -15,14 +15,14 @@ class Test_organize_folder(unittest.TestCase):
         """
         Test that it can get the file extension
         """
-        result = organize_folder.get_file_extension('item.mov')
+        result = folder_organizer.get_file_extension('item.mov')
         self.assertEqual(result, '.mov')
 
     def test_has_file_extension(self):
         """
         Test that a file has a file extension
         """
-        result = organize_folder.has_file_extension('item.mov')
+        result = folder_organizer.has_file_extension('item.mov')
         self.assertTrue(result)
 
     @patch('os.makedirs')
@@ -30,7 +30,7 @@ class Test_organize_folder(unittest.TestCase):
         """
         Test that it is possible to create a folder
         """
-        organize_folder.create_directory('test')
+        folder_organizer.create_directory('test')
         mock_makedirs.assert_called_once_with('test')
 
     @patch('os.makedirs')
@@ -40,7 +40,7 @@ class Test_organize_folder(unittest.TestCase):
         """
         Test that file is moved into folder
         """
-        organize_folder.move_file_to_dir('file', 'directory')
+        folder_organizer.move_file_to_dir('file', 'directory')
         mock_path_join.assert_called()
         mock_move.assert_called()
         mock_makedirs.assert_called()

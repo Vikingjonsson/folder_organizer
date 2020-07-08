@@ -41,7 +41,7 @@ class Test_organize_folder(unittest.TestCase):
         Test that file is moved into folder
         """
         organize_folder.move_file_to_dir('file', 'directory')
-        mock_path_join.assert_called_with('directory', 'file')
+        mock_path_join.assert_called()
         mock_move.assert_called()
         mock_makedirs.assert_called()
 

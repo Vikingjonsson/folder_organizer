@@ -17,10 +17,12 @@ def create_directory(directory_name):
         os.makedirs(directory_name)
 
 
-def move_file_to_dir(file_path, dir_path):
+def move_file_to_dir(file_name, dir_path):
+    cwd = os.getcwd()
     create_directory(dir_path)
-    dest = os.path.join(dir_path, file_path)
-    shutil.move(file_path, dest)
+    src = os.path.join(cwd, file_name)
+    dest = os.path.join(cwd, dir_path, file_name)
+    shutil.move(src, dest)
 
 
 if __name__ == '__main__':
@@ -31,46 +33,33 @@ if __name__ == '__main__':
     CURRENT_WORKING_DIR = os.getcwd()
 
     FOLDER_PATHS = {
-        'Start': os.path.join(CURRENT_WORKING_DIR, 'Texts'),
-        'MOV': os.path.join(CURRENT_WORKING_DIR, 'Movies'),
-        'IMG': os.path.join(CURRENT_WORKING_DIR, 'Images'),
-        'PDF': os.path.join(CURRENT_WORKING_DIR, 'PDFs'),
-        'LOG': os.path.join(CURRENT_WORKING_DIR, 'Logs')
+        'TXT': 'Texts',
+        'MOV': 'Movies',
+        'IMG': 'Images',
+        'PDF': 'PDFs',
+        'LOG': 'Logs',
     }
 
     FILE_TYPES = {
-        'MOV': '[.mov]',
-        'TXT': '[.txt]',
+        'MOV': ['.mov'],
+        'TXT': ['.txt'],
         'IMG': ['.jpeg', '.jpg', '.png'],
-        'PDF': '[.pdf]',
-        'LOG': '[.log]'
+        'PDF': ['.pdf'],
+        'LOG': ['.log']
     }
 
     for item in os.listdir(CURRENT_WORKING_DIR):
         if has_file_extension(item):
             extension = get_file_extension(item)
-            item_path = os.path.join(CURRENT_WORKING_DIR, item)
 
-            for key, value in FILE_TYPES.items():
-                print('key: ', key)
-                print(value)
-
-            if extension in FILE_TYPES['MOV']:
-                move_file_to_dir(item_path, FOLDER_PATHS['MOV'])
-
-            elif extension in FILE_TYPES['PDF']:
-                move_file_to_dir(item_path, FOLDER_PATHS['PDF'])
-
-            elif extension in FILE_TYPES['TXT']:
-                move_file_to_dir(item_path, FOLDER_PATHS['TEXT'])
-
-            elif extension in FILE_TYPES['IMG']:
-                move_file_to_dir(item_path, FOLDER_PATHS['IMG'])
+            for key, values in FILE_TYPES.items():
+                print(extension in values)
+                if extension in values:
+                    move_file_to_dir(item, FOLDER_PATHS[key])
 
             else:
                 create_directory(FOLDER_PATHS['LOG'])
-                file_name = os.path.join(
-                    FOLDER_PATHS['LOGS'], "missing_extensions.log")
+                file_path = os.path.join(FOLDER_PATHS['LOG'], "organize.log")
 
-                with open(file_name, "a") as f:
+                with open(file_path, "a") as f:
                     f.write(extension + "\n")

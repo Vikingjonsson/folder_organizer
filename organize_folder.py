@@ -4,7 +4,7 @@ import sys
 import shutil
 
 
-def get_file_extension(file: str) -> str:
+def get_file_extension(file):
     return os.path.splitext(file)[1]
 
 
@@ -29,16 +29,13 @@ if __name__ == '__main__':
     if not sys.argv[1]:
         exit
 
-    os.chdir(sys.argv[1])
-    CURRENT_WORKING_DIR = os.getcwd()
-
     FOLDER_PATHS = {
         'TXT': 'Texts',
         'MOV': 'Movies',
         'IMG': 'Images',
         'PDF': 'PDFs',
         'LOG': 'Logs',
-        'IMG': 'Disk images'
+        'DISK': 'Disk images'
     }
 
     FILE_TYPES = {
@@ -47,21 +44,24 @@ if __name__ == '__main__':
         'IMG': ['.jpeg', '.jpg', '.png'],
         'PDF': ['.pdf'],
         'LOG': ['.log'],
-        'IMG': ['.img']
+        'DISK': ['.img']
     }
+
+    os.chdir(sys.argv[1])
+    CURRENT_WORKING_DIR = os.getcwd()
 
     for item in os.listdir(CURRENT_WORKING_DIR):
         if has_file_extension(item):
             extension = get_file_extension(item)
 
             for key, values in FILE_TYPES.items():
-                print(extension in values)
                 if extension in values:
-                    move_file_to_dir(item, FOLDER_PATHS[key])
+                    move_file_to_dir(item,  FOLDER_PATHS[key])
 
-            else:
-                create_directory(FOLDER_PATHS['LOG'])
-                file_path = os.path.join(FOLDER_PATHS['LOG'], "organize.log")
+                else:
+                    create_directory(FOLDER_PATHS['LOG'])
+                    file_path = os.path.join(
+                        FOLDER_PATHS['LOG'], "organize.log")
 
-                with open(file_path, "a") as f:
-                    f.write(extension + "\n")
+                    with open(file_path, "a") as f:
+                        f.write(extension + "\n")

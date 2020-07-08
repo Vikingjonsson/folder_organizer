@@ -1,4 +1,4 @@
-# Folder organizer :smirk:
+# Folder organizer 📁
 
 Tool to organize folders by file type. Created to be used with automation systems.
 

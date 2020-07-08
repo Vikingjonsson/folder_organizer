@@ -1,6 +1,6 @@
-# Organize folder :smirk:
+# Folder organizer :smirk:
 
-Tool to organize folders by file type
+Tool to organize folders by file type. Created to be used with automation systems.
 
 ## Quickstart
 

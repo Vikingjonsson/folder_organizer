@@ -33,19 +33,17 @@ if __name__ == '__main__':
         exit
 
     os.chdir(sys.argv[1])
-    CURRENT_WORKING_DIR = os.getcwd()
 
-    for item in os.listdir(CURRENT_WORKING_DIR):
+    for item in os.listdir(os.getcwd()):
         if has_file_extension(item):
             extension = get_file_extension(item)
 
             for dir_name, file_extensions in FILE_TYPES.items():
                 if extension.upper() in file_extensions:
                     move_file_to_dir(item,  dir_name)
-
                 else:
-                    create_directory(dir_name)
-                    file_path = os.path.join(dir_name, "organize.log")
-
+                    LOGS = 'Logs'
+                    create_directory(LOGS)
+                    file_path = os.path.join(LOGS, "organize.log")
                     with open(file_path, "a") as f:
                         f.write(extension + "\n")

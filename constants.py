@@ -1,11 +1,11 @@
-FONTS = [
+_FONTS = [
     'FNT',
     'FON',
     'OTF',
     'TTF',
 ]
 
-IMAGES = [
+_IMAGES = [
     'AI',
     'BMP',
     'GIF',
@@ -21,7 +21,7 @@ IMAGES = [
     'TIFF',
 ]
 
-PRESENTATIONS = [
+_PRESENTATIONS = [
     'KEY',
     'ODP',
     'PPS',
@@ -29,14 +29,14 @@ PRESENTATIONS = [
     'PPTX',
 ]
 
-SPREADSHEETS = [
+_SPREADSHEETS = [
     'ODS',
     'XLS',
     'XLSM',
     'XLSX',
 ]
 
-MOVIES = [
+_MOVIES = [
     '3G2',
     'AVI',
     'FLV',
@@ -53,7 +53,7 @@ MOVIES = [
     'WMV',
 ]
 
-TEXT_DOCUMENTS = [
+_TEXT_DOCUMENTS = [
     'DOC',
     'DOCX',
     'ODT',
@@ -63,9 +63,9 @@ TEXT_DOCUMENTS = [
     'WPD',
 ]
 
-PDFS = ['PDF']
+_PDFS = ['PDF']
 
-SYSTEMS = [
+_SYSTEMS = [
     'BAK',
     'CAB',
     'CFG',
@@ -80,17 +80,13 @@ SYSTEMS = [
     'TMP',
 ]
 
-LOGS = [
-    'LOG',
-]
 
 FILE_TYPES = {
-    'FONTS': FONTS,
-    'IMAGES': IMAGES,
-    'LOGS': LOGS,
-    'MOVIES': MOVIES,
-    'PDF': PDFS,
-    'DOCUMENTS': TEXT_DOCUMENTS,
-    'SPREADSHEETS': SPREADSHEETS,
-    'SYSTEMS': SYSTEMS,
+    'FONTS': _FONTS,
+    'IMAGES': _IMAGES,
+    'MOVIES': _MOVIES,
+    'PDF': _PDFS,
+    'DOCUMENTS': _TEXT_DOCUMENTS,
+    'SPREADSHEETS': _SPREADSHEETS,
+    'SYSTEMS': _SYSTEMS,
 }

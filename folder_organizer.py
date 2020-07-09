@@ -2,6 +2,7 @@
 import os
 import sys
 import shutil
+from constants import FILE_TYPES, FOLDER_PATHS
 
 
 def get_file_extension(file):
@@ -28,24 +29,6 @@ def move_file_to_dir(file_name, dir_path):
 if __name__ == '__main__':
     if not sys.argv[1]:
         exit
-
-    FOLDER_PATHS = {
-        'TXT': 'Texts',
-        'MOV': 'Movies',
-        'IMG': 'Images',
-        'PDF': 'PDFs',
-        'LOG': 'Logs',
-        'DISK': 'Disk images'
-    }
-
-    FILE_TYPES = {
-        'MOV': ['.mov'],
-        'TXT': ['.txt'],
-        'IMG': ['.jpeg', '.jpg', '.png'],
-        'PDF': ['.pdf'],
-        'LOG': ['.log'],
-        'DISK': ['.img']
-    }
 
     os.chdir(sys.argv[1])
     CURRENT_WORKING_DIR = os.getcwd()

@@ -2,11 +2,13 @@
 import os
 import sys
 import shutil
-from constants import FILE_TYPES, FOLDER_PATHS
+from constants import FILE_TYPES
 
 
 def get_file_extension(file):
-    return os.path.splitext(file)[1]
+    extension = os.path.splitext(file)[1]
+    extension_without_dot = extension.replace('.', '')
+    return extension_without_dot
 
 
 def has_file_extension(file):
@@ -37,14 +39,13 @@ if __name__ == '__main__':
         if has_file_extension(item):
             extension = get_file_extension(item)
 
-            for key, values in FILE_TYPES.items():
-                if extension in values:
-                    move_file_to_dir(item,  FOLDER_PATHS[key])
+            for dir_name, file_extensions in FILE_TYPES.items():
+                if extension.upper() in file_extensions:
+                    move_file_to_dir(item,  dir_name)
 
                 else:
-                    create_directory(FOLDER_PATHS['LOG'])
-                    file_path = os.path.join(
-                        FOLDER_PATHS['LOG'], "organize.log")
+                    create_directory(dir_name)
+                    file_path = os.path.join(dir_name, "organize.log")
 
                     with open(file_path, "a") as f:
                         f.write(extension + "\n")

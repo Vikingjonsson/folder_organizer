@@ -16,7 +16,7 @@ class Test_folder_organizer(unittest.TestCase):
         Test that it can get the file extension
         """
         result = folder_organizer.get_file_extension('item.mov')
-        self.assertEqual(result, '.mov')
+        self.assertEqual(result, 'mov')
 
     def test_has_file_extension(self):
         """

@@ -10,7 +10,7 @@ python organize.py /path/to/folder/to/organize
 
 ## Requirements
 
-You need a Python 3
+You need a Python
 
 ## 2020 Roadmap
 

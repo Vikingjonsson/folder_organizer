@@ -29,6 +29,7 @@ def move_file_to_dir(file_name, dir_path):
 
 
 if __name__ == '__main__':
+    print(sys.argv)
     if not sys.argv[1]:
         exit
 
@@ -37,13 +38,17 @@ if __name__ == '__main__':
     for item in os.listdir(os.getcwd()):
         if has_file_extension(item):
             extension = get_file_extension(item)
+            MISSING_TYPES = []
 
             for dir_name, file_extensions in FILE_TYPES.items():
                 if extension.upper() in file_extensions:
                     move_file_to_dir(item,  dir_name)
                 else:
-                    LOGS = 'Logs'
-                    create_directory(LOGS)
-                    file_path = os.path.join(LOGS, "organize.log")
-                    with open(file_path, "a") as f:
-                        f.write(extension + "\n")
+                    MISSING_TYPES.append(extension)
+                    UNIQUE_MISSING_TYPES = list(set(MISSING_TYPES))
+
+            LOGS = 'Logs'
+            create_directory(LOGS)
+            with open(os.path.join(LOGS, "organize.txt"), "a") as f:
+                for missing_type in UNIQUE_MISSING_TYPES:
+                    f.write(missing_type + "\n")

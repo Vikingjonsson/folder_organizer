@@ -65,6 +65,8 @@ _TEXT_DOCUMENTS = [
 
 _PDFS = ['PDF']
 
+_EBOOKS = ['EPUB', 'MOBI']
+
 _SYSTEMS = [
     'BAK',
     'CAB',
@@ -80,13 +82,20 @@ _SYSTEMS = [
     'TMP',
 ]
 
+_PACKAGES = [
+    'ZIP',
+    'DMG'
+]
+
 
 FILE_TYPES = {
-    'FONTS': _FONTS,
-    'IMAGES': _IMAGES,
-    'MOVIES': _MOVIES,
+    'Packages': _PACKAGES,
+    'Documents': _TEXT_DOCUMENTS,
+    'E-books': _EBOOKS,
+    'Fonts': _FONTS,
+    'Images': _IMAGES,
+    'Movies': _MOVIES,
     'PDF': _PDFS,
-    'DOCUMENTS': _TEXT_DOCUMENTS,
-    'SPREADSHEETS': _SPREADSHEETS,
-    'SYSTEMS': _SYSTEMS,
+    'Spreadsheets': _SPREADSHEETS,
+    'System': _SYSTEMS,
 }

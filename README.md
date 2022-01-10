@@ -12,7 +12,7 @@ python organize.py /path/to/folder/to/organize
 
 You need a Python
 
-## 2020 Roadmap
+## Roadmap
 
 - Support for more file extensions
 

@@ -30,6 +30,26 @@ def move_file_to_dir(file_name, dir_path):
     shutil.move(src, dest)
 
 
+def log_none_supported_extension(unique_missing_types):
+    LOGS = 'Logs'
+    LOG_FILE_PATH = join(LOGS, "organize.txt")
+
+    if len(unique_missing_types):
+        create_directory(LOGS)
+        already_logged = []
+        extensions_not_logged = []
+
+        if exists(LOG_FILE_PATH):
+            f = open(LOG_FILE_PATH, "r")
+            already_logged = f.read().split("\n")
+            extensions_not_logged = list(
+                set(unique_missing_types) - set(already_logged))
+
+    with open(LOG_FILE_PATH, "a") as f:
+        for missing_type in extensions_not_logged:
+            f.write(missing_type + "\n")
+
+
 if __name__ == '__main__':
     print(sys.argv)
     DIRECTORY_PATH = sys.argv[1]
@@ -39,8 +59,9 @@ if __name__ == '__main__':
 
     chdir(DIRECTORY_PATH)
 
-    UNIQUE_MISSING_TYPES = []
-    MISSING_TYPES = []
+    missing_types = []
+    unique_missing_types = []
+
     ALL_FILES_IN_DIRECTORY = [f for f in listdir(
         DIRECTORY_PATH) if isfile(join(DIRECTORY_PATH, f))]
 
@@ -52,23 +73,7 @@ if __name__ == '__main__':
                 if extension.upper() in file_extensions:
                     move_file_to_dir(item,  dir_name)
                 else:
-                    MISSING_TYPES.append(extension)
-                    UNIQUE_MISSING_TYPES = list(set(MISSING_TYPES))
+                    missing_types.append(extension)
+                    unique_missing_types = list(set(missing_types))
 
-    if len(UNIQUE_MISSING_TYPES):
-        LOGS = 'Logs'
-        LOG_FILE_PATH = join(LOGS, "organize.txt")
-        create_directory(LOGS)
-
-        ALREADY_LOGGED = []
-        EXTENSIONS_NOT_LOGGED = []
-
-        if exists(LOG_FILE_PATH):
-            f = open(LOG_FILE_PATH, "r")
-            ALREADY_LOGGED = f.read().split("\n")
-            EXTENSIONS_NOT_LOGGED = list(
-                set(UNIQUE_MISSING_TYPES) - set(ALREADY_LOGGED))
-
-        with open(LOG_FILE_PATH, "a") as f:
-            for missing_type in EXTENSIONS_NOT_LOGGED:
-                f.write(missing_type + "\n")
+    log_none_supported_extension(unique_missing_types)

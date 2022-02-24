@@ -57,8 +57,7 @@ if __name__ == '__main__':
 
     if len(UNIQUE_MISSING_TYPES):
         LOGS = 'Logs'
-        ORGANIZE_TXT = "organize.txt"
-        LOG_FILE_PATH = join(LOGS, ORGANIZE_TXT)
+        LOG_FILE_PATH = join(LOGS, "organize.txt")
         create_directory(LOGS)
 
         ALREADY_LOGGED = []

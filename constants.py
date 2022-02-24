@@ -34,6 +34,7 @@ _SPREADSHEETS = [
     'XLS',
     'XLSM',
     'XLSX',
+    'CSV'
 ]
 
 _MOVIES = [
@@ -84,7 +85,12 @@ _SYSTEMS = [
 
 _PACKAGES = [
     'ZIP',
-    'DMG'
+    'DMG',
+    'APP'
+]
+
+_AUDIO = [
+    'WAV'
 ]
 
 
@@ -98,4 +104,5 @@ FILE_TYPES = {
     'PDF': _PDFS,
     'Spreadsheets': _SPREADSHEETS,
     'System': _SYSTEMS,
+    'Audio': _AUDIO
 }

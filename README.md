@@ -5,7 +5,7 @@ Tool to organize folders by file type. Created to be used with automation system
 ## Quickstart
 
 ```shell
-python organize.py /path/to/folder/to/organize
+python main.py /path/to/folder/to/organize
 ```
 
 ## Requirements

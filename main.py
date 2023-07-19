@@ -9,7 +9,6 @@ import sys
 import shutil
 
 from pathlib import Path
-from typing import Set, List, Dict
 from constants import FILE_TYPES
 
 if __name__ == '__main__':
@@ -20,13 +19,13 @@ if __name__ == '__main__':
 
     os.chdir(directory_path)
 
-    unsupported_file_types: Set[str] = set()
+    unsupported_file_types: set[str] = set()
 
-    all_files: List[Path] = [Path(f) for f in os.listdir(
+    all_files: list[Path] = [Path(f) for f in os.listdir(
         directory_path) if os.path.isfile(os.path.join(directory_path, f))]
 
     # Create a reverse mapping of file extensions to directory names
-    extension_to_dir: Dict[str, str] = {}
+    extension_to_dir: dict[str, str] = {}
     for dir_name, file_extensions in FILE_TYPES.items():
         for extension in file_extensions:
             extension_to_dir[f".{extension}"] = dir_name

@@ -95,14 +95,15 @@ _AUDIO = [
 
 
 FILE_TYPES = {
-    'Packages': _PACKAGES,
+    'Audio': _AUDIO,
     'Documents': _TEXT_DOCUMENTS,
     'E-books': _EBOOKS,
     'Fonts': _FONTS,
     'Images': _IMAGES,
     'Movies': _MOVIES,
+    'Packages': _PACKAGES,
     'PDF': _PDFS,
+    'Presentations': _PRESENTATIONS,
     'Spreadsheets': _SPREADSHEETS,
     'System': _SYSTEMS,
-    'Audio': _AUDIO
 }

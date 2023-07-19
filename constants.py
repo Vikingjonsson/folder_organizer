@@ -1,96 +1,96 @@
 _FONTS = [
-    'FNT',
-    'FON',
-    'OTF',
-    'TTF',
+    'fnt',
+    'fon',
+    'otf',
+    'ttf',
 ]
 
 _IMAGES = [
-    'AI',
-    'BMP',
-    'GIF',
-    'ICO',
-    'ICNS',
-    'JPEG',
-    'JPG',
-    'PNG',
-    'PS',
-    'PSD',
-    'SVG',
-    'TIF',
-    'TIFF',
+    'ai',
+    'bmp',
+    'gif',
+    'ico',
+    'icns',
+    'jpeg',
+    'jpg',
+    'png',
+    'ps',
+    'psd',
+    'svg',
+    'tif',
+    'tiff',
 ]
 
 _PRESENTATIONS = [
-    'KEY',
-    'ODP',
-    'PPS',
-    'PPT',
-    'PPTX',
+    'key',
+    'odp',
+    'pps',
+    'ppt',
+    'pptx',
 ]
 
 _SPREADSHEETS = [
-    'ODS',
-    'XLS',
-    'XLSM',
-    'XLSX',
-    'CSV'
+    'ods',
+    'xls',
+    'xlsm',
+    'xlsx',
+    'csv'
 ]
 
 _MOVIES = [
-    '3G2',
-    'AVI',
-    'FLV',
-    'H264',
-    'IMG',
-    'M4V',
-    'MKV',
-    'MP4',
-    'MPG',
-    'MPEG',
-    'RM',
-    'SWF',
-    'VOB',
-    'WMV',
+    '3g2',
+    'avi',
+    'flv',
+    'h264',
+    'img',
+    'm4v',
+    'mkv',
+    'mp4',
+    'mpg',
+    'mpeg',
+    'rm',
+    'swf',
+    'vob',
+    'wmv',
 ]
 
 _TEXT_DOCUMENTS = [
-    'DOC',
-    'DOCX',
-    'ODT',
-    'RTF',
-    'TEX',
-    'TXT',
-    'WPD',
+    'doc',
+    'docx',
+    'odt',
+    'rtf',
+    'tex',
+    'txt',
+    'wpd',
 ]
 
-_PDFS = ['PDF']
+_PDFS = ['pdf']
 
-_EBOOKS = ['EPUB', 'MOBI']
+_EBOOKS = ['epub', 'mobi']
 
 _SYSTEMS = [
-    'BAK',
-    'CAB',
-    'CFG',
-    'CPL',
-    'CUR',
-    'DMP',
-    'DRV',
-    'INI',
-    'LNK',
-    'MSI',
-    'SYS',
-    'TMP',
+    'bak',
+    'cab',
+    'cfg',
+    'cpl',
+    'cur',
+    'dmp',
+    'drv',
+    'ini',
+    'lnk',
+    'msi',
+    'sys',
+    'tmp',
 ]
 
 _PACKAGES = [
-    'ZIP',
-    'DMG',
-    'APP'
+    'zip',
+    'dmg',
+    'app'
 ]
 
 _AUDIO = [
-    'WAV'
+    'wav'
 ]
 
 

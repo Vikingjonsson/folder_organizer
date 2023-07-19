@@ -1,10 +1,16 @@
+"""
+Folder organizer
+-----------
+This script will move files to folders based on the file suffix.
+"""
+
 import os
 import sys
 import shutil
 
 from pathlib import Path
-from constants import FILE_TYPES
 from typing import Set, List, Dict
+from constants import FILE_TYPES
 
 if __name__ == '__main__':
     directory_path: str = sys.argv[1]
@@ -36,6 +42,6 @@ if __name__ == '__main__':
         log_file_path: Path = Path('logs/organize.txt')
         log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(log_file_path, "a") as f:
+        with open(log_file_path, "a", encoding="utf-8") as f:
             for file_type in unsupported_file_types:
                 f.write(file_type + "\n")

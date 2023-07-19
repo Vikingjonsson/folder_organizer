@@ -7,6 +7,9 @@ __pycache__/
 # Unit test / coverage reports
 .pytest_cache/
 
+# Virtual environment
+venv
+
 # Translations
 *.mo
 *.pot
@@ -16,7 +19,6 @@ __pycache__/
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
-
 # mypy
 .mypy_cache/
 .dmypy.json

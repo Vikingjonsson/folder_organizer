@@ -1,96 +1,102 @@
+"""
+Constants
+"""
+
+
 _FONTS = [
-    'fnt',
-    'fon',
-    'otf',
-    'ttf',
+    '.fnt',
+    '.fon',
+    '.otf',
+    '.ttf',
 ]
 
 _IMAGES = [
-    'ai',
-    'bmp',
-    'gif',
-    'ico',
-    'icns',
-    'jpeg',
-    'jpg',
-    'png',
-    'ps',
-    'psd',
-    'svg',
-    'tif',
-    'tiff',
+    '.ai',
+    '.bmp',
+    '.gif',
+    '.ico',
+    '.icns',
+    '.jpeg',
+    '.jpg',
+    '.png',
+    '.ps',
+    '.psd',
+    '.svg',
+    '.tif',
+    '.tiff',
 ]
 
 _PRESENTATIONS = [
-    'key',
-    'odp',
-    'pps',
-    'ppt',
-    'pptx',
+    '.key',
+    '.odp',
+    '.pps',
+    '.ppt',
+    '.pptx',
 ]
 
 _SPREADSHEETS = [
-    'ods',
-    'xls',
-    'xlsm',
-    'xlsx',
-    'csv'
+    '.ods',
+    '.xls',
+    '.xlsm',
+    '.xlsx',
+    '.csv'
 ]
 
-_MOVIES = [
-    '3g2',
-    'avi',
-    'flv',
-    'h264',
-    'img',
-    'm4v',
-    'mkv',
-    'mp4',
-    'mpg',
-    'mpeg',
-    'rm',
-    'swf',
-    'vob',
-    'wmv',
+_VIDEOS = [
+    '.mov',
+    '.3g2',
+    '.avi',
+    '.flv',
+    '.h264',
+    '.img',
+    '.m4v',
+    '.mkv',
+    '.mp4',
+    '.mpg',
+    '.mpeg',
+    '.rm',
+    '.swf',
+    '.vob',
+    '.wmv',
 ]
 
 _TEXT_DOCUMENTS = [
-    'doc',
-    'docx',
-    'odt',
-    'rtf',
-    'tex',
-    'txt',
-    'wpd',
+    '.doc',
+    '.docx',
+    '.odt',
+    '.rtf',
+    '.tex',
+    '.txt',
+    '.wpd',
+    '.pdf',
 ]
 
-_PDFS = ['pdf']
 
-_EBOOKS = ['epub', 'mobi']
+_EBOOKS = ['.epub', '.mobi',]
 
 _SYSTEMS = [
-    'bak',
-    'cab',
-    'cfg',
-    'cpl',
-    'cur',
-    'dmp',
-    'drv',
-    'ini',
-    'lnk',
-    'msi',
-    'sys',
-    'tmp',
+    '.bak',
+    '.cab',
+    '.cfg',
+    '.cpl',
+    '.cur',
+    '.dmp',
+    '.drv',
+    '.ini',
+    '.lnk',
+    '.msi',
+    '.sys',
+    '.tmp',
 ]
 
 _PACKAGES = [
-    'zip',
-    'dmg',
-    'app'
+    '.zip',
+    '.dmg',
+    '.app',
 ]
 
 _AUDIO = [
-    'wav'
+    '.wav',
 ]
 
 
@@ -100,10 +106,9 @@ FILE_TYPES = {
     'E-books': _EBOOKS,
     'Fonts': _FONTS,
     'Images': _IMAGES,
-    'Movies': _MOVIES,
     'Packages': _PACKAGES,
-    'PDF': _PDFS,
     'Presentations': _PRESENTATIONS,
     'Spreadsheets': _SPREADSHEETS,
     'System': _SYSTEMS,
+    'Video': _VIDEOS,
 }

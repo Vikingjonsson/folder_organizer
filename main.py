@@ -4,43 +4,46 @@ Folder organizer
 This script will move files to folders based on the file suffix.
 """
 
-import os
 import sys
 import shutil
 
+from os import chdir, listdir
+from os.path import isfile, join
 from pathlib import Path
+
 from constants import FILE_TYPES
 
 if __name__ == '__main__':
-    directory_path: str = sys.argv[1]
+    dir_path: str = sys.argv[1]
 
-    if not directory_path:
+    if not dir_path:
         sys.exit()
 
-    os.chdir(directory_path)
+    chdir(dir_path)
 
-    unsupported_file_types: set[str] = set()
+    unsupported_files: set[str] = set()
 
-    all_files: list[Path] = [Path(f) for f in os.listdir(
-        directory_path) if os.path.isfile(os.path.join(directory_path, f))]
+    # Select all files in directory
+    files = [Path(f) for f in listdir(dir_path) if isfile(join(dir_path, f))]
 
-    # Create a reverse mapping of file extensions to directory names
-    extension_to_dir: dict[str, str] = {}
-    for dir_name, file_extensions in FILE_TYPES.items():
-        for extension in file_extensions:
-            extension_to_dir[f".{extension}"] = dir_name
+    # Create a reverse mapping of file suffixes to directory names
+    suffix_to_dir: dict[str, str] = {}
+    for dir_name, file_suffixes in FILE_TYPES.items():
+        for suffix in file_suffixes:
+            suffix_to_dir[suffix] = dir_name
 
-    for file in all_files:
-        if file.suffix in extension_to_dir:
-            destination = Path(extension_to_dir[file.suffix]) / file.name
+    for file in files:
+        if file.suffix in suffix_to_dir:
+            destination = Path(suffix_to_dir[file.suffix]) / file.name
+            destination.parent.mkdir(parents=True, exist_ok=True)
             shutil.move(file, destination)
         else:
-            unsupported_file_types.add(file.suffix)
+            unsupported_files.add(file.suffix)
 
-    if unsupported_file_types:
+    if unsupported_files:
         log_file_path: Path = Path('logs/organize.txt')
         log_file_path.parent.mkdir(parents=True, exist_ok=True)
 
         with open(log_file_path, "a", encoding="utf-8") as f:
-            for file_type in unsupported_file_types:
+            for file_type in unsupported_files:
                 f.write(file_type + "\n")

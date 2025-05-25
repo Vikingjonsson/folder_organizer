@@ -1,49 +1,56 @@
 """
 Folder organizer
 -----------
-This script will move files to folders based on the file suffix.
+This script moves files to folders based on their file suffix.
 """
 
-import sys
 import shutil
-
+import sys
 from os import chdir, listdir
 from os.path import isfile, join
 from pathlib import Path
+from typing import Set
 
 from constants import FILE_TYPES
 
-if __name__ == '__main__':
-    dir_path: str = sys.argv[1]
 
-    if not dir_path:
-        sys.exit()
+def main():
+    if len(sys.argv) < 2:
+        print("Usage: python main.py <directory_path>")
+        sys.exit(1)
 
+    dir_path = sys.argv[1]
     chdir(dir_path)
 
-    unsupported_files: set[str] = set()
+    unsupported_suffixes: Set[str] = set()
+    files = [Path(f) for f in listdir(".") if isfile(f)]
 
-    # Select all files in directory
-    files = [Path(f) for f in listdir(dir_path) if isfile(join(dir_path, f))]
-
-    # Create a reverse mapping of file suffixes to directory names
-    suffix_to_dir: dict[str, str] = {}
-    for dir_name, file_suffixes in FILE_TYPES.items():
-        for suffix in file_suffixes:
-            suffix_to_dir[suffix] = dir_name
+    # Map file suffixes to their target directories
+    suffix_to_dir = {
+        suffix: dir_name
+        for dir_name, suffixes in FILE_TYPES.items()
+        for suffix in suffixes
+    }
 
     for file in files:
-        if file.suffix in suffix_to_dir:
-            destination = Path(suffix_to_dir[file.suffix]) / file.name
+        file_suffix = file.suffix.lower()
+        target_dir = suffix_to_dir.get(file_suffix)
+
+        if target_dir:
+            destination = Path(target_dir) / file.name
             destination.parent.mkdir(parents=True, exist_ok=True)
-            shutil.move(file, destination)
+            shutil.move(str(file), str(destination))
         else:
-            unsupported_files.add(file.suffix)
+            unsupported_suffixes.add(file.suffix)
 
-    if unsupported_files:
-        log_file_path: Path = Path('logs/organize.txt')
-        log_file_path.parent.mkdir(parents=True, exist_ok=True)
+    if unsupported_suffixes:
+        log_file = Path("logs/organize.txt")
+        log_file.parent.mkdir(parents=True, exist_ok=True)
 
-        with open(log_file_path, "a", encoding="utf-8") as f:
-            for file_type in unsupported_files:
-                f.write(file_type + "\n")
+        with open(log_file, "a", encoding="utf-8") as f:
+            for suffix in unsupported_suffixes:
+                f.write(suffix + "\n")
+
+
+if __name__ == "__main__":
+    main()
